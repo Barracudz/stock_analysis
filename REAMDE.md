@@ -1,0 +1,1 @@
+- stocktest.py generates charts of companies of choices
