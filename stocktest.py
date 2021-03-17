@@ -12,16 +12,16 @@ def getStockData():
     while stock != '' or len(stocks) == 0:
         if len(stocks) == 5:
             break
-        print('Enter a stock ticker or enter to stop.')
+        print('\nEnter a stock ticker or leave blank and press enter to stop.')
         print('You have to enter at least one stock and max 5')
         stock = input('Enter stock ticker: ')
         if stock != '':
             stocks.append(stock)
 
-    print(stocks)
+    print(f'\nCompanies chosen: {stocks}')
 
-    start = input('Enter start date (YYYY-MM-DD) - enter for first date: ')
-    end = input('Enter end date (YYYY-MM-DD) - enter for last date: ')
+    start = input('\nEnter start date (YYYY-MM-DD) - leave blank and press enter for first date: ')
+    end = input('\nEnter end date (YYYY-MM-DD) - leave blank and press enter for last date: ')
 
     currentDate = dt.datetime.today()
     earliestDate = '1900-01-01' # If user wants earliest date
@@ -71,7 +71,7 @@ def getStockData():
     # Plot chart for percentage growth in stock price
     for i in range(len(stocks)):
         startingPrice = dfs[i].iloc[0][0] # Get startingPrice
-        print(f'Stock: {stocks[i]}')
+        print(f'\nStock: {stocks[i]}')
         print(f'Starting price: {startingPrice}')
         ax3.plot(((dfs[i]['Close'] / startingPrice) - 1) * 100)
 
